@@ -34,6 +34,10 @@ export function ExpandableCardDemo() {
     navigator.clipboard.writeText(title);
   };
 
+  const handleCardClick = (card: { title: string; content: () => JSX.Element }) => {
+    setActive(card);
+  };
+
   return (
     <>
       <AnimatePresence>
@@ -107,30 +111,30 @@ export function ExpandableCardDemo() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full flex flex-col gap-5">
-        {cards.map((card) => (
-          <div className="flex flex-row justify-between items-center">
-            <motion.div
-              layoutId={`card-${card.title}-${id}`}
-              key={`card-${card.title}-${id}`}
-              onClick={() => setActive(card)}
-              className="select-none px-4 py-6 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
-            >
-              <div className="">
-                <motion.h3
-                  layoutId={`title-${card.title}-${id}`}
-                  className="font-space text-xl text-dark dark:text-light text-center md:text-left break-words"
-                >
-                  {card.title}
-                </motion.h3>
-              </div>
-            </motion.div>
-            <span className="font-space text-2xl font-bold text-dark dark:text-light cursor-pointer hover:-translate-y-1 duration-200" onClick={() => handleCopy(card.title)}>
-              <FontAwesomeIcon icon={faCopy} />
-            </span>
-          </div>
-        ))}
-      </ul>
+          <ul className="max-w-2xl mx-auto w-full flex flex-col gap-5">
+      {cards.map((card, index) => (
+        <div className="flex flex-row justify-between items-center" key={`card-container-${index}`}>
+          <motion.div
+        layoutId={`card-${card.title}-${id}`}
+        key={`card-${card.title}-${id}`}
+        onClick={() => handleCardClick(card)}
+        className="select-none px-4 py-6 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+          >
+        <div className="">
+          <motion.h3
+            layoutId={`title-${card.title}-${id}`}
+            className="font-space text-xl text-dark dark:text-light text-center md:text-left break-words"
+          >
+            {card.title}
+          </motion.h3>
+        </div>
+          </motion.div>
+          <span className="font-space text-2xl font-bold text-dark dark:text-light cursor-pointer hover:-translate-y-1 duration-200" onClick={() => handleCopy(card.title)}>
+        <FontAwesomeIcon icon={faCopy} />
+          </span>
+        </div>
+      ))}
+    </ul>
     </>
   );
 }

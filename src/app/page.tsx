@@ -14,7 +14,7 @@ export default function Home() {
         <span className="text-light text-3xl animate-bounce">&#9829;</span>
         <a href="" target="_blank" className="font-space text-2xl font-normal border-2 border-light text-light px-4 py-1.5 rounded-md duration-200 hover:font-bold hover:text-dark hover:bg-light active:scale-105">Check Out Repo</a>
       </div>
-      <footer className="fixed bottom-0 font-space text-xl font-medium text-light text-center">Built on <a href="https://alephium.org/" target="_blank" className="hover:underline">alephium</a></footer>
+      <footer className="fixed bottom-2 font-space text-xl font-medium text-light text-center">Built on <a href="https://alephium.org/" target="_blank" className="hover:underline">alephium</a></footer>
     </div>
   );
 }
