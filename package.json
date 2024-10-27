@@ -1,26 +1,15 @@
 {
-  "name": "alphxium",
+  "name": "nextjs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "build": "npm run devnet:build",
-    "devnet:build": "NEXT_PUBLIC_NETWORK=devnet next build",
-    "testnet:build": "NEXT_PUBLIC_NETWORK=testnet next build",
-    "mainnet:build": "NEXT_PUBLIC_NETWORK=mainnet next build",
-    "compile": "cli compile",
-    "deploy": "npm run devnet:deploy",
-    "devnet:deploy": "cli deploy -n devnet",
-    "testnet:deploy": "cli deploy -n testnet",
-    "mainnet:deploy": "cli deploy -n mainnet"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@alephium/web3": "^1.8.3",
-    "@fortawesome/fontawesome-svg-core": "^6.6.0",
-    "@fortawesome/free-solid-svg-icons": "^6.6.0",
-    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@alephium/cli": "^1.8.3",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.10",
     "next": "15.0.1",
@@ -29,16 +18,13 @@
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
-    "@alephium/cli": "^1.8.3",
-    "@types/node": "^20",
-    "@types/react": "^18.3.12",
+    "@types/node": "^20.17.1",
+    "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/react-fontawesome": "^1.6.8",
-    "autoprefixer": "^10.4.20",
     "eslint": "^8",
     "eslint-config-next": "15.0.1",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.14",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
 }

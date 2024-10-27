@@ -1,9 +1,7 @@
 "use client";
 import React, { useEffect, useId, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/app/hooks/use-outside-click";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCopy, faCheckCircle, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
+import { AnimatePresence, motion } from "framer-motion";
 
 export function ExpandableCardDemo() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(null);
@@ -102,8 +100,8 @@ export function ExpandableCardDemo() {
                   </motion.div>
                 </div>
                 <div className="flex flex-row gap-10 justify-center items-center">
-                  <button className="px-4 py-3 text-md rounded-lg font-space font-bold bg-green-600 text-white hover:text-green-600 hover:bg-white duration-200">Accept<span className="[word-spacing:0.1rem]"> <FontAwesomeIcon icon={faCheckCircle} /></span></button>
-                  <button className="px-4 py-3 text-md rounded-lg font-space font-bold bg-red-500 text-white hover:text-red-600 hover:bg-white duration-200">Reject<span className="[word-spacing:0.1rem]"> <FontAwesomeIcon icon={faCircleXmark} /></span></button>
+                  <button className="px-4 py-3 text-md rounded-lg font-space font-bold bg-green-600 text-white hover:text-green-600 hover:bg-white duration-200">Accept<span className="[word-spacing:0.1rem]"> <i className="fa fa-check-circle"/></span></button>
+                  <button className="px-4 py-3 text-md rounded-lg font-space font-bold bg-red-500 text-white hover:text-red-600 hover:bg-white duration-200">Reject<span className="[word-spacing:0.1rem]"> <i className="fa fa-times-circle"/></span></button>
                 </div>
               </div>
             </motion.div>
@@ -131,7 +129,7 @@ export function ExpandableCardDemo() {
           <span
             className="font-space px-5 text-2xl font-bold text-dark dark:text-light cursor-pointer hover:-translate-y-[0.2rem] active:translate-y-[0.01rem] duration-200"
             onClick={() => handleCopy(card.title)}>
-            <FontAwesomeIcon icon={faCopy} />
+            <i className="fa fa-copy"/>
           </span>
         </div>
       ))}
