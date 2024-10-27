@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  background-color: #10100e;
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
