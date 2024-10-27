@@ -7,7 +7,7 @@ export default function Home() {
       <div className="flex flex-col items-center gap-2 font-space text-4xl font-medium text-light text-center">
         <h2>The <span className="font-bold">DeFi</span> platform for</h2>
         <h2 className="underline">borrowing and lending</h2>
-        <h2 className="font-pixel font-semibold">cryptocurrency</h2>
+        <h2 className="font-pixel font-semibold">alephium tokens</h2>
       </div>
       <div className="flex flex-row gap-10 mt-10 items-center">
         <Link href="/dashboard" className="font-space text-2xl font-normal border-2 border-light text-light px-4 py-1.5 rounded-md duration-200 hover:font-bold hover:text-dark hover:bg-light active:scale-105">Connect Wallet</Link>

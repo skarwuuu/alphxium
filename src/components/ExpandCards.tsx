@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/app/hooks/use-outside-click";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy, faCheckCircle, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
-import { div } from "framer-motion/client";
 
 export function ExpandableCardDemo() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(null);
@@ -46,7 +45,7 @@ export function ExpandableCardDemo() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/20 h-full w-full z-10"
+            className="fixed inset-0 bg-inherit backdrop-blur-md h-full w-full z-10"
           />
         )}
       </AnimatePresence>
@@ -113,24 +112,26 @@ export function ExpandableCardDemo() {
       </AnimatePresence>
           <ul className="max-w-2xl mx-auto w-full flex flex-col gap-5">
       {cards.map((card, index) => (
-        <div className="flex flex-row justify-between items-center" key={`card-container-${index}`}>
+        <div className="flex flex-row justify-between items-center group" key={`card-container-${index}`}>
           <motion.div
         layoutId={`card-${card.title}-${id}`}
         key={`card-${card.title}-${id}`}
         onClick={() => handleCardClick(card)}
-        className="select-none px-4 py-6 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+        className="select-none px-5 py-6 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-700 rounded-xl cursor-pointer"
           >
         <div className="">
           <motion.h3
             layoutId={`title-${card.title}-${id}`}
-            className="font-space text-xl text-dark dark:text-light text-center md:text-left break-words"
+            className="font-space text-xl text-dark dark:text-light text-center md:text-left group-hover:underline"
           >
             {card.title}
           </motion.h3>
         </div>
           </motion.div>
-          <span className="font-space text-2xl font-bold text-dark dark:text-light cursor-pointer hover:-translate-y-1 duration-200" onClick={() => handleCopy(card.title)}>
-        <FontAwesomeIcon icon={faCopy} />
+          <span
+            className="font-space px-5 text-2xl font-bold text-dark dark:text-light cursor-pointer hover:-translate-y-[0.2rem] active:translate-y-[0.01rem] duration-200"
+            onClick={() => handleCopy(card.title)}>
+            <FontAwesomeIcon icon={faCopy} />
           </span>
         </div>
       ))}
