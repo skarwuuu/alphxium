@@ -1,0 +1,10 @@
+struct Lended {
+    lendedAddress: Address,
+    lendedAmnt: U256
+}
+
+Contract Lend() {
+    pub fn foo() -> () {
+        // something
+    }
+}
