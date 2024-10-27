@@ -4,9 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build": "npm run devnet:build",
+    "devnet:build": "NEXT_PUBLIC_NETWORK=devnet next build",
+    "testnet:build": "NEXT_PUBLIC_NETWORK=testnet next build",
+    "mainnet:build": "NEXT_PUBLIC_NETWORK=mainnet next build",
+    "compile": "cli compile",
+    "deploy": "npm run devnet:deploy",
+    "devnet:deploy": "cli deploy -n devnet",
+    "testnet:deploy": "cli deploy -n testnet",
+    "mainnet:deploy": "cli deploy -n mainnet"
   },
   "dependencies": {
     "@alephium/web3": "^1.8.3",
@@ -21,6 +29,7 @@
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
+    "@alephium/cli": "^1.8.3",
     "@types/node": "^20",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18",
